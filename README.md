@@ -8,18 +8,22 @@
 - GDD 📄
     -   
     -   Game design document and similar archives
+- src 👨‍💻
+    -   
+    -   Scenes and Scrips separated by folders
+---
 - World  🌃
     -
-    - Scenes where action happens, like Highway 
+    - Scenes or scripts where action happens, like Highway 
 - Player 🤖
     -
-    - Scenes of thing related to player, like Player, Shots and Guns (if exist)
+    - Scenes or scripts of thing related to player, like Player, Shots and Guns (if exist)
 - Screens 💻
     -
-    - Scenes of interaction with user, like Inicial Menu
+    - Scenes or scripts of interaction with user, like Inicial Menu
 - Enemies 👾
     - 
-    - Scenes related to enemies, like all types of Enemies and Enemies Shot
+    - Scenes or scripts related to enemies, like all types of Enemies and Enemies Shot
 
 ---
 
