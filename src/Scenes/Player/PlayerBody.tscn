@@ -1,3 +1,14 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
 
-[node name="PlayerBody" type="Node2D"]
+[ext_resource path="res://src/Scenes/Player/Shot.tscn" type="PackedScene" id=1]
+
+[node name="PlayerBody" type="Node2D" groups=["Player"]]
+position = Vector2( 231, 602 )
+
+[node name="Shot" parent="." instance=ExtResource( 1 )]
+bullet_speed = 700
+fire_rate = 0.4
+
+[node name="ShootPoint" type="Node2D" parent="Shot"]
+
+[node name="Sprite" type="Sprite" parent="."]
