@@ -1,5 +1,10 @@
 extends KinematicBody2D
 
+export var maxHealth = 1
+export var InvencTime = 0.2
+var actualHealth = maxHealth
+var damaged = false
+
 var speed = 200
 var move = Vector2()
 var status = 1
@@ -43,6 +48,22 @@ func _physics_process(delta):
 		bulletShooted.get_node("EnemyShotBody").apply_impulse(Vector2(),Vector2(0,bulletSpeed))
 		get_tree().get_root().add_child(bulletShooted)
 	
-func kill():
+func _on_HurtBox_body_entered(body):
+	if body.is_in_group("Damage"):
+		print("Dano Inimigo")
+		if actualHealth > 0:
+			if !damaged:
+				dano()
+		else:
+			die()
+
+func dano():
+	print("tomou dano")
+	damaged = true
+	actualHealth = actualHealth-1
+	yield(get_tree().create_timer(InvencTime),"timeout")
+	damaged = false
+
+func die():
+	print("morreu")
 	queue_free()
-	

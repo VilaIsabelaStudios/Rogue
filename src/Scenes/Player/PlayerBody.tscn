@@ -1,14 +1,39 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/Scenes/Player/Shot.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Art/Bullets/Bullet.png" type="Texture" id=3]
+[ext_resource path="res://src/Scripts/Player/Player.gd" type="Script" id=4]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 9.0
+height = 24.0
 
 [node name="PlayerBody" type="Node2D" groups=["Player"]]
+light_mask = 2
 position = Vector2( 231, 602 )
+script = ExtResource( 4 )
 
 [node name="Shot" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, -38 )
 bullet_speed = 700
 fire_rate = 0.4
 
 [node name="ShootPoint" type="Node2D" parent="Shot"]
 
 [node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="KinematicBody2D"]
+position = Vector2( 0, -15 )
+shape = SubResource( 1 )
+
+[node name="HurtBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2( 0, -15 )
+shape = SubResource( 1 )
+
+[connection signal="body_entered" from="HurtBox" to="." method="_on_HurtBox_body_entered"]

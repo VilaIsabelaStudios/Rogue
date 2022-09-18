@@ -33,3 +33,4 @@ func _process(_delta):
 		can_fire = false
 		yield(get_tree().create_timer(fire_rate),"timeout")
 		can_fire = true 
+

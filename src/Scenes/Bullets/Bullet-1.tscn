@@ -7,14 +7,17 @@
 radius = 3.0
 height = 8.0
 
-[node name="Bullet-1" type="RigidBody2D"]
+[node name="Bullet-1" type="RigidBody2D" groups=["Damage"]]
+collision_layer = 2
+collision_mask = 2
 gravity_scale = 0.0
 contacts_reported = 1
 contact_monitor = true
 can_sleep = false
 script = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Damage"]]
+light_mask = 3
 position = Vector2( 0, -5 )
 shape = SubResource( 1 )
 
