@@ -47,22 +47,17 @@ func _physics_process(delta):
 		bulletShooted.position = Vector2(position.x+450,position.y+20)
 		bulletShooted.get_node("EnemyShotBody").apply_impulse(Vector2(),Vector2(0,bulletSpeed))
 		get_tree().get_root().add_child(bulletShooted)
-	
-func _on_HurtBox_body_entered(body):
-	if body.is_in_group("Damage"):
-		print("Dano Inimigo")
-		if actualHealth > 0:
-			if !damaged:
-				dano()
-		else:
+		
+func damage(var damage):
+	if !damaged:
+		actualHealth = actualHealth-1
+		print("tomou dano")
+		print(actualHealth)
+		if actualHealth <=0:
 			die()
-
-func dano():
-	print("tomou dano")
-	damaged = true
-	actualHealth = actualHealth-1
-	yield(get_tree().create_timer(InvencTime),"timeout")
-	damaged = false
+		damaged = true
+		yield(get_tree().create_timer(InvencTime),"timeout")
+		damaged = false
 
 func die():
 	print("morreu")

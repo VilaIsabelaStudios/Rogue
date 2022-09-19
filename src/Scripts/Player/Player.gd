@@ -1,24 +1,19 @@
 extends Node2D
 
-export var maxHealth = 1
+export var maxHealth = 3
 export var InvencTime = 0.2
 var actualHealth = maxHealth
 var damaged = false
 
-func _on_HurtBox_body_entered(body):
-	if body.is_in_group("Damage"):
-		if actualHealth > 0:
-			if !damaged:
-				dano()
-		else:
+func damage(var damage):
+		actualHealth = actualHealth-1
+		print("tomou dano")
+		print(actualHealth)
+		if actualHealth <=0:
 			die()
-
-func dano():
-	print("tomou dano")
-	damaged = true
-	actualHealth = actualHealth-1
-	yield(get_tree().create_timer(InvencTime),"timeout")
-	damaged = false
+		damaged = true
+		yield(get_tree().create_timer(InvencTime),"timeout")
+		damaged = false
 
 func die():
 	print("morreu")

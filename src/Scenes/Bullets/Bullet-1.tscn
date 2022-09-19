@@ -1,27 +1,29 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Art/Bullets/Bullet.png" type="Texture" id=1]
-[ext_resource path="res://src/Scripts/PlayerShoot/Bullets.gd" type="Script" id=2]
+[ext_resource path="res://src/Scripts/PlayerShoot/Bullet.gd" type="Script" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 3.0
 height = 8.0
 
-[node name="Bullet-1" type="RigidBody2D" groups=["Damage"]]
-collision_layer = 2
-collision_mask = 2
+[node name="Bullet-1" type="RigidBody2D"]
 gravity_scale = 0.0
-contacts_reported = 1
-contact_monitor = true
-can_sleep = false
-script = ExtResource( 2 )
+contacts_reported = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Damage"]]
-light_mask = 3
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -5 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="Bullet_area" type="Area2D" parent="."]
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bullet_area"]
 position = Vector2( 0, -5 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 
-[connection signal="body_entered" from="." to="." method="_on_Bullet1_body_entered"]
+[connection signal="body_entered" from="Bullet_area" to="Bullet_area" method="_on_Bullet_area_body_entered"]
