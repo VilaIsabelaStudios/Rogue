@@ -9,12 +9,16 @@ var killeds = 0
 
 func _physics_process(delta):
 	killeds = Global.returnKills()
+	# Change of horder
 	if killeds == phases[now]:
 		now += 1
+	# Time updated
 	if time < 1:
 		time+=delta
+	# Time out
 	else:
 		time = 0
+		# Spawn only until the number defined in horder
 		if totalSpawneds<phases[now]:
 			var spawned = enemy.instance()
 			spawned.position=Vector2(450,0)

@@ -38,9 +38,10 @@ func _physics_process(delta):
 	elif status==4:
 		status = 1
 	move_and_slide(move.normalized()*speed)
-	
+	# Decrease time to shot again
 	if reload>0:
 		reload-=delta
+	# Spawn of a shot
 	else:
 		reload=3
 		var bulletShooted = bullet.instance()
@@ -61,5 +62,6 @@ func damage(var damage):
 
 func die():
 	print("morreu")
+	# Kills increased
 	Global.enemieDeath()
 	queue_free()
