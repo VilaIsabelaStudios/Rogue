@@ -14,6 +14,10 @@ config/name="Rogue"
 run/main_scene="res://src/Scenes/World/Highway.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://src/Scripts/World/Global.gd"
+
 [display]
 
 window/size/width=480

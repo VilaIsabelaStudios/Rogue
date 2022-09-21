@@ -61,4 +61,5 @@ func damage(var damage):
 
 func die():
 	print("morreu")
+	Global.enemieDeath()
 	queue_free()
