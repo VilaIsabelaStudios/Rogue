@@ -5,38 +5,18 @@ export var InvencTime = 0.2
 var actualHealth = maxHealth
 var damaged = false
 
-var speed = 200
+var speed = 130
 var move = Vector2()
-var status = 1
 var bullet = preload("res://src/Scenes/Enemies/enemyShot.tscn")
 var reload = 3
 var bulletSpeed=400
 
 func _physics_process(delta):
-	var location = [position.x,position.y]
-	if location[0]>-450 and status == 1:
-		move.x=-10
-		move.y=8
-	elif status == 1:
-		status = 2
-		
-	if location[0]<0 and status == 2:
-		move.x=10
+	var location = [global_position.x,global_position.y]
+	if location[1]<400:
+		move.y=1
+	else: 
 		move.y=0
-	elif status==2:
-		status = 3
-		
-	if location[0]>-450 and status == 3:
-		move.x=-10
-		move.y=-8
-	elif status==3:
-		status = 4
-		
-	if location[0]<0 and status == 4:
-		move.x=10
-		move.y=0
-	elif status==4:
-		status = 1
 	move_and_slide(move.normalized()*speed)
 	# Decrease time to shot again
 	if reload>0:
@@ -45,7 +25,7 @@ func _physics_process(delta):
 	else:
 		reload=3
 		var bulletShooted = bullet.instance()
-		bulletShooted.position = Vector2(position.x+450,position.y+20)
+		bulletShooted.position = Vector2(location[0],location[1]+16)
 		bulletShooted.get_node("EnemyShotBody").apply_impulse(Vector2(),Vector2(0,bulletSpeed))
 		get_tree().get_root().add_child(bulletShooted)
 		

@@ -15,5 +15,6 @@ func _physics_process(delta):
 		vel.y = vel.y - move_speed
 	if Input.is_action_pressed("ui_down"):
 		vel.y = vel.y + move_speed
+
 	
 	move_and_slide(vel)
