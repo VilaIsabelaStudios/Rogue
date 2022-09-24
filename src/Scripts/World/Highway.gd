@@ -5,17 +5,18 @@ var hordes=[2,3,4,5,6]
 # Possible position (x) to spawn an enemy
 var possiblePositions = [60,135,230,325,420]
 # Time to wait for spawn another enemy
-var time = 1
+var pause = 0
 # Scene of enemy type 1
 var enemy = preload("res://src/Scenes/Enemies/EnemyLv1.tscn")
 # Number of spawned enemies of actual horde
 var spawneds = 0
+# Import animation for horde cleared
+onready var animation = $AnimationPlayer
 
 # Accessing Global vars
 var actualHorde = Global.returnHorde()
 var killeds = Global.returnKills()
 var killedsOnHorde = Global.returnKillsOnOrder()
-
 func _physics_process(delta):
 	# Updating with Global vars
 	actualHorde = Global.returnHorde()
@@ -23,16 +24,19 @@ func _physics_process(delta):
 	killedsOnHorde = Global.returnKillsOnOrder()	
 	# Change of horde
 	if killedsOnHorde == hordes[actualHorde]:
-		Global.nextHorde()
-		actualHorde = Global.returnHorde()
-		spawneds = 0
-	# Time updated
-	if time < 1:
-		time+=delta
-	# Time out
-	else:
-		time = 0
-		# Spawn only until the number defined in horde
+		animation.play("onHordeCleared")
+		#pause between two hordes
+		# Time updated
+		if pause < 3:
+			pause+=delta
+		# Time out
+		else:
+			pause = 0
+			Global.nextHorde()
+			actualHorde = Global.returnHorde()
+			spawneds = 0
+	
+	# Spawn only until the number defined in horde
 	if spawneds<hordes[actualHorde]:
 		var spawned = enemy.instance()
 		spawned.position=Vector2(possiblePositions[spawneds],0)

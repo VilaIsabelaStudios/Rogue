@@ -3,7 +3,7 @@ extends Node
 # Number of killed enemies
 var kills = 0
 
-# Number of on actualHorde
+# Number of kills on actualHorde
 var killsOnHorde = 0
 
 # Actual horde of player, reutilized avery phase
