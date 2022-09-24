@@ -3,7 +3,7 @@ extends Node2D
 # Number of enemies for each horde
 var hordes=[2,3,4,5,6]
 # Possible position (x) to spawn an enemy
-var possiblePositions = [60,135,230,325,420]
+var possiblePositions = [60,135,230,325,420,95,190]
 # Time to wait for spawn another enemy
 var pause = 0
 # Scene of enemy type 1
@@ -24,7 +24,8 @@ func _physics_process(delta):
 	killedsOnHorde = Global.returnKillsOnOrder()	
 	# Change of horde
 	if killedsOnHorde == hordes[actualHorde]:
-		animation.play("onHordeCleared")
+		if pause == 0:
+			animation.play("onHordeCleared")
 		#pause between two hordes
 		# Time updated
 		if pause < 3:
