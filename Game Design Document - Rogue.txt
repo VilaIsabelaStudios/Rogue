@@ -1,0 +1,236 @@
+﻿Game Design Document
+Ver.1 - Rogue
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Feito por Gabriel Lechado Milanez
+Campo Mourão, Setembro de 2022      
+ (Tudo aqui retratado se trata de um produto em desenvolvimento e não de uma versão final, sujeito a mudanças)
+
+
+
+
+Índice
+
+
+1.História…………………………………………..………………………3
+2.Gameplay………...……………………………….…………………….4
+3.Personagens……....……………………………………………………5
+4.Controles…………..…………………………………………….………6
+5.Estilo de Camera………………………………………………………..7
+6.Universo do jogo………………………………………………………...8
+7.Inimigos…………………………………………………………………..9
+8.Interface………………………………………………………………….10
+9.Cutscenes………………………………………………………………..11
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1.História
+
+
+-(Cyberpunk) - Jogador controla uma entidade robótica que acorda sem ideia do por que vive, é mandado para desmantelar organizações criminosas que controlam um novo mundo onde dinheiro e poder andam lado a lado.
+Um universo distópico onde corporações e criminosos já se tornaram a mesma coisa, IAs e robôs são comuns porém problemas tais quanto a criminalidade e o desemprego são tão presentes quanto. Um mundo que tem todas as soluções que imaginamos nos tempos atuais porém ainda os mesmos problemas, sociedades são divididas entre classes sociais e o prospecto de sucesso raramente é apresentado de maneira legal, porém, há muito tempo atrás a empresa HighSec, e seus modelos descartados de robôs de guerrilha ainda seriam um problema…
+Será o jogador quem mudará a situação de subjugamento da população a grandes empresas que cada vez mais se tornam militarizadas, ou ele será apenas mais um fantasma dentro da máquina.
+2.Gameplay
+
+
+-Jogo feito no estilo Shoot’em up, focado em mecânicas de tiro diversas que dão controle e reatividade na mão do jogador fazendo com que ele precise utilizar todas as ferramentas dispostas a si para que passe adiante dos obstáculos apresentados.
+
+
+- Jogo inicialmente se portaria como outros jogos de “nave” com um estilo “Top-Down” onde inimigos vão surgindo em hordas de maneira a ser definida pelo Script e definem novos desafios aos jogadores 
+
+
+- (Desenvolvimento da ideia Cyberpunk) Uma mecânica de hordas onde o jogo se situa em uma rodovia onde só há o jogador e os inimigos, o jogador seria um IA que se tornou independente e busca vingança/ caça organizações criminosas, o jogador controlaria essa IA a qual pilota uma moto, os inimigos seriam outras motos/carros que atirariam para trás no jogador (o jogador sendo quem os persegue), tal ideia dá uma sensação de poder ao jogador ao qual sente que ele é tanto o personagem menos preparado, tanto quanto o perseguidor, que deu início a série de eventos
+
+
+- Jogo inicialmente feito com a intenção de “Fases” as quais o jogador progride tentando obter o maior número de pontos possíveis para obter Highscores, a fase termina assim que o “Chefe” da fase em questão for derrotado
+
+
+- Gameover é obtido assim que o jogador perder 3 corações representando na UI do jogo, as vidas são raramente obtidas no meio de fases as tornando valiosas e algo do qual o jogador deve pensar antes de definir seu estilo de jogo
+
+
+-Definição da Mecânica de jogo - (Abordado em “4.Controles)
+-Armas alternativas são pegas e utilizadas na hora, são jogadas fora quando sem munição 
+-Pegar armas novas deleta a arma anterior, ou no caso da mesma arma, completa a munição 
+-Objetivo do jogador é sobreviver a hordas de inimigos que aumentam gradativamente em dificuldade, novos inimigos não surgem até o limite da horda atual ser abatido (Ex: horda 1 possui 5 inimigos, que irão spawnar dentro de 20sec)
+3.Personagens
+- (Tema Cyberpunk) 
+Personagem principal -  “RAI” - Rogue AI (Um robô que desenvolveu consciência (algo que não seria raro no universo) porém busca vingança e respostas sobre seu passado e o porquê de seu descarte. Jogador possui uma pistola inicialmente e conforme o jogo avança pode conseguir outras armas na forma de power-ups
+
+
+Mentor - “Hicar”- Drone do mesmo tipo do protagonista, tentou fazer exatamente o que o protagonista faz, falhou de maneira desconhecida ao player, tem uma personalidade manipuladora e dissimulada, tenta convencer o jogador de que seus objetivos são de interesse a todos, sabendo que é a única realidade que RAI conhece.
+4.Controles
+
+
+- WASD - Movimentação padrão para cima, baixo, esquerda e direita com limitações até certa parte da tela
+
+
+- Espaço - Botão de Ação - em Cutscenes usado para passar diálogos
+
+
+- Cima, Esquerda e Direita - Tiro - Mira direcional em 3 direções 
+5. Câmera.
+
+
+- Câmera no estilo “Top-Down”, vendo o jogador de cima para baixo onde os inimigos surgem do topo da tela e o jogador é restringido a parte inferior dela  
+6.In-Game Universe
+(Sujeito a mudanças)
+- (Tomando a ideia Cyberpunk como base)
+- Níveis - Rodovias que transitam de ambientes mais pobres até os mais ricos, para noção artística vale a pena utilizar Akira (1991) como referência
+  
+  
+
+
+
+- Música será discutida ainda porém algo num estilo CyberPunk anos 80/90 com sintetizadores passaria a intenção de uma cidade moderna, porém nostálgica e presa no passado
+7.Inimigos 
+
+
+- Ainda a ser discutidos comportamentos. Inicialmente inimigos tais como motos para representar membros menores de gangues e evoluindo até carros executivos para mostrar que o risco aumentou e cada vez mais o jogador se dirige aos grandes executivos daquele universo.
+
+
+- Todos os inimigos serão derrotados apenas com o botão de tiro, mostrando apenas diferenças nas estratégias utilizadas pelo jogador para conseguir tal, evitando ao máximo tomar dano.
+
+
+- Inicialmente as outras motos inimigas irão interagir com o jogador atirando em tal, comportamentos de inimigos mais avançados ainda serão definidos.
+
+
+-Primeiro inimigo - “Gunner” - Inimigo simples, tenta matar o player com tiros, mantendo uma certa distância de tal, inicialmente ideia de design consiste de 2 motoqueiros baseados na estética punk, serão usados em todos os níveis a partir do inicial 
+8.Interface
+
+
+Definido em uma HUD simples, sem muitos elementos para não dificultar a visibilidade do jogador.
+
+
+- Indicador de HP - 3 corações no canto superior esquerdo, jogador não precisa desfocar do inimigo para ver
+
+
+-Indicador de munição - Canto inferior direito, indicando a munição máxima, atual e a arma selecionada
+
+
+-Fluxo de telas
+-Tela Inicial apresentando 3 opções de menu, abaixo de um título apresentando o nome do jogo, opções de: “JOGAR”,”COMO JOGAR” e “SAIR”
+-Jogar direciona a segunda tela, apresenta 3 estágios do jogo no centro da tela, da esquerda para a direita, estágio 1 - O Deserto, estágio 2 - Subúrbios, estágio 3 - Centro Comercial.
+-Como Jogar abre uma tela simples que fala dos comandos do jogo, apenas.
+-Sair leva o jogador para a área de trabalho.
+-Quando vidas do jogador acabarem, mostrar tela de “GAME OVER” e mostrar 2 opções, “JOGAR NOVAMENTE” e “MENU”, jogar novamente o leva ao início da fase atual e menu leva ao menu principal
+9.Cutscenes
+
+
+(A serem definidas)
+
+
+- Inicialmente no modelo “RPG Maker” 2 personagens, sempre o protagonista e algum outro, a moldura do personagem em questão “acende” quando ele está falando e seu diálogo é mostrado em uma caixa de texto abaixo.
+
+
+- 1º Cutscene - Já em movimento, o jogador recebe uma ligação do mentor, explicando a situação e de quem ele está atrás, recebe breves informações e chama atenção para o cuidado para lidar com o chefe da fase.
