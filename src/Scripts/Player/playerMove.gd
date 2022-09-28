@@ -4,6 +4,7 @@ var vel = Vector2()
 var move_speed = 450
 
 func _physics_process(delta):
+	Global.updatePlayerPosition(int(global_position.x),int(global_position.y))
 	vel.x = 0
 	vel.y = 0
 	
@@ -15,6 +16,6 @@ func _physics_process(delta):
 		vel.y = vel.y - move_speed
 	if Input.is_action_pressed("ui_down"):
 		vel.y = vel.y + move_speed
-
+	
 	
 	move_and_slide(vel)

@@ -5,19 +5,40 @@ export var InvencTime = 0.2
 var actualHealth = maxHealth
 var damaged = false
 
+# Speed of enemy
 var speed = 130
+# Vector of enemy move
 var move = Vector2()
+# Loading scene of enemy bullet
 var bullet = preload("res://src/Scenes/Enemies/enemyShot.tscn")
+# Time to enemy can fire again
 var reload = 3
-var bulletSpeed=400
+# Speed of enemy bullet
+var bulletSpeed = 400
+# State of move: Spawning or Hunting
+var moveState = "Spawning"
 
 func _physics_process(delta):
 	var location = [global_position.x,global_position.y]
-	if location[1]<400:
-		move.y=1
-	else: 
-		move.y=0
+	var player = Global.returnPlayerPosition()
+	
+	if moveState == "Spawning":
+		if location[1]<400:
+			move.y = 1
+		else: 
+			move.y = 0
+			moveState = "Hunting"
+			
+	if moveState == "Hunting":
+		if player[0]<location[0]:
+			move.x=-1
+		elif player[0]>location[0]:
+			move.x=1
+		else:
+			move.x=0
+		
 	move_and_slide(move.normalized()*speed)
+
 	# Decrease time to shot again
 	if reload>0:
 		reload-=delta

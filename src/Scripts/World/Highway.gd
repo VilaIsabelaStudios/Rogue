@@ -3,7 +3,7 @@ extends Node2D
 # Number of enemies for each horde
 var hordes=[2,3,4,5,6]
 # Possible position (x) to spawn an enemy
-var possiblePositions = [60,135,230,325,420,95,190]
+var possiblePositions = [[60,0],[135,0],[230,0],[325,0],[420,0],[95,-100],[190,-100]]
 # Time to wait for spawn another enemy
 var pause = 0
 # Scene of enemy type 1
@@ -40,6 +40,6 @@ func _physics_process(delta):
 	# Spawn only until the number defined in horde
 	if spawneds<hordes[actualHorde]:
 		var spawned = enemy.instance()
-		spawned.position=Vector2(possiblePositions[spawneds],0)
+		spawned.position=Vector2(possiblePositions[spawneds][0],possiblePositions[spawneds][1])
 		get_parent().call_deferred("add_child",spawned)
 		spawneds+=1

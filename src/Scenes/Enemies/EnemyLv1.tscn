@@ -8,7 +8,7 @@ extents = Vector2( 28, 10 )
 
 [node name="EnemyLv1" type="Node2D"]
 
-[node name="Body" type="KinematicBody2D" parent="." groups=["Damageble"]]
+[node name="Body" type="KinematicBody2D" parent="." groups=["Damageble", "Enemy"]]
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="Body"]

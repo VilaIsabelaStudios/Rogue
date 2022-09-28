@@ -9,7 +9,8 @@ var killsOnHorde = 0
 # Actual horde of player, reutilized avery phase
 var actualHorde = 0
 
-
+# Position of player, updated every time
+var PlayerPosition = [0,0]
 
 func enemieDeath():
 	kills += 1
@@ -29,3 +30,8 @@ func returnHorde():
 func zeroHorde():
 	actualHorde = 0
 	
+func updatePlayerPosition(x,y):
+	PlayerPosition[0] = x
+	PlayerPosition[1] = y
+func returnPlayerPosition():
+	return PlayerPosition
